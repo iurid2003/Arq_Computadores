@@ -1,0 +1,14 @@
+# comandos do vhdl 
+
+#WHEN ELSE
+-- Y <= X(0) when sel="00" else ...
+
+#WITH SELECT 
+-- entrada  whit sel -- entrada select 
+y <= x(0) when "00" ,..
+
+#CONFIGURATION
+CONFIGURATION <name> OF <enity> IS
+	FOR <architecture_name> END FOR;
+END CONFIGURATION;
+
