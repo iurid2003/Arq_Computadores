@@ -22,3 +22,22 @@ IF condição THEN
              afirmação_sequencial;
              ...
          END IF [rótulo];
+
+#DIFERENCAS ENTRE SIGNAL E E VARIABLE 
+# COMO COLOCAR UMA VARIAVEL GENERICA
+
+	generic
+	(
+		N : natural := 4  
+	);
+
+-- antes do port ;
+
+#GENERALIZAR O q 
+
+   q <= (others =>'0') ; 
+
+-- todos as outras variables recebem 0 ;
+
+
+
