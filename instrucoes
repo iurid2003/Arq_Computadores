@@ -1,14 +1,48 @@
-# comandos do vhdl 
+#VHDL
+-- entity
+entradas e saidas 
+entity ifsc is
 
-#WHEN ELSE
--- Y <= X(0) when sel="00" else ...
+end ifsc;
 
-#WITH SELECT 
--- entrada  whit sel -- entrada select 
-y <= x(0) when "00" ,..
+-- architecture
 
-#CONFIGURATION
-CONFIGURATION <name> OF <enity> IS
-	FOR <architecture_name> END FOR;
-END CONFIGURATION;
+architecture RTL of ANDGATE is
 
+end RTL;
+
+-- process
+lista de op a serem executadas
+atrib : process
+
+
+end process atrib ;
+
+-- backpage 
+library IEEE; --> 
+use IEEE.std_logic_1164.all; --> 
+
+--signal
+> sao usados dentro da architecture sinais internos 
+signal a, b : bit;
+
+-- constantes 
+CONSTANT WIDTH : INTEGER := 8;
+
+-- atribuiçoes 
+
+<= → atribuição de valor para um sinal
+
+:= → atribuição de valor para uma variável
+
+= → igual;
+
+/= → diferente;
+
+< → menor;
+
+<= → menor ou igual;
+
+> → maior;
+
+>= → maior ou igual;
