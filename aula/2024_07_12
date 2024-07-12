@@ -1,0 +1,7 @@
+#FIFO Buffer
+-Um subsistema armazena (ou seja, escreve) dados
+no buffer
+-e o outro subsistema recupera (ou seja, lê) dados do
+buffer e os remove do buffer.
+- se na posicao de escrever a leitura ja tenha sido ocorrida pode-se escrever encima dele
+-
