@@ -1,0 +1,94 @@
+.DSEG 
+.ORG SRAM_START
+   a : BYTE 4
+   b : BYTE 4
+   c : BYTE 4
+.CSEG
+   
+start :
+   // a = 0x01020304
+   LDI r16 , 0x04
+   STS a+0 , r16
+   LDI r16 , 0x03
+   STS a+1 , r16
+   LDI r16 , 0x02
+   STS a+2 , r16
+   LDI r16 , 0x01
+   STS a+3 , r16
+   
+   
+   // incrementando B
+   LDI r16 , 0x04
+   STS b+0 , r16
+   LDI r16 , 0x03
+   STS b+1 , r16
+   LDI r16 , 0x02
+   STS b+2 , r16
+   LDI r16 , 0x01
+   STS b+3 , r16
+   
+   
+   // apontando x e y para z
+   
+   // sub rotina    
+   LDI XL , LOW(a)
+   LDI XH , HIGH(a)
+   
+   LDI YL , LOW(b)
+   LDI YH , HIGH(b)
+   
+   LDI ZL , LOW(c)
+   LDI ZH , HIGH(c)
+   
+   RCALL soma32bits
+   
+   rjmp start 
+   
+   // soma resultados 
+   
+soma32bits:
+    PUSH r1
+    PUSH r2
+    PUSH r3
+    PUSH r4
+    PUSH r5
+    PUSH r6
+    PUSH r7
+    
+    IN r7 , SREG 
+    PUSH r7 
+    
+    // salvar contexto
+    LD r0 , X+
+    LD r1 , X+
+    LD r2 , X+
+    LD r3 , X
+    
+    LD r4 , Y+
+    LD r5 , Y+
+    LD r6 , Y+
+    LD r7 , Y
+    
+    ADD r0 , r4 
+    ADC r1 , r5
+    ADC r2 , r6
+    ADC r3 , r7
+    
+    ST Z+ , r0
+    ST Z+ , r1
+    ST Z+ , r2
+    ST Z+ , r3
+    
+    // restaurar contexto
+    POP r7
+    OUT SREG , r7  
+    POP r7
+    POP r6
+    POP r5
+    POP r4
+    POP r3
+    POP r2
+    POP r1
+    POP r0
+    
+    ret
